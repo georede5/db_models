@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3-beta" use-changelog="false" last-position="132,0" last-zoom="1" max-obj-count="4"
+	 default-schema="saa" default-owner="georede5">
+<role name="georede5"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      bypassrls="true">
+</role>
+
+<database name="new_database" encoding="UTF8" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="saa" layer="0" rect-visible="true" fill-color="#e1e1e1">
+	<role name="georede5"/>
+</schema>
+
+<table name="condutas" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="saa"/>
+	<role name="georede5"/>
+	<position x="240" y="200"/>
+	<column name="uuid" not-null="true" default-value="uuid_generate_v4()">
+		<type name="uuid" length="0"/>
+	</column>
+	<constraint name="condutas_pk" type="pk-constr" table="saa.condutas">
+		<columns names="uuid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="condutas_funcao" layer="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="saa"/>
+	<role name="georede5"/>
+	<comment><![CDATA[Função das condutas. Adutora, distribuidora, by-pass...etc]]></comment>
+	<position x="280" y="460"/>
+</table>
+
+<table name="reservatorio" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="saa"/>
+	<role name="georede5"/>
+	<position x="540" y="60"/>
+	<column name="uuid" not-null="true" default-value="uuid_generate_v4()">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="reservatorio_pk" type="pk-constr" table="saa.reservatorio">
+		<columns names="uuid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+</dbmodel>
