@@ -16,7 +16,7 @@ SGRR - Sistema de Gestão de Rede Rodoviária *(é óbvio que o nome pode mudar)
 
 ### NOTAS
 
-* deverá ser considerada com uma versão alpha V01, como prova de conceito
+* deverá ser considerada como uma versão alpha V01, uma prova de conceito funcional
 * não se encontra devidamente documentada
 
  
