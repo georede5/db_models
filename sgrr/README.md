@@ -7,12 +7,12 @@ SGRR - Sistema de Gestão de Rede Rodoviária *(é óbvio que o nome pode mudar)
 * A ideia é a aplicação de um [Linear Reference System (LRS)](https://en.wikipedia.org/wiki/Linear_referencing) na BD para uso em **n** tipo de *software*, SIG ou não
 * inclui um dump com informação exemplificativa, para testes (informação não sensível e desatualizada)
 * adicionado um diagrama da BD em formato pgmodeler
-
-![](./db_diagram.png)
+ 
+<img src="./db_diagram.png" width="900"> ![](./example_anim.gif)
 
 **exemplo do funcionamento em QGIS**
 
-![](./example_anim.gif)
+
 
 ### NOTAS
 
