@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.2" last-position="0,0" last-zoom="0.75" max-obj-count="25"
+<dbmodel pgmodeler-ver="0.9.2" last-position="416,719" last-zoom="0.7" max-obj-count="25"
 	 default-schema="public" default-owner="postgres">
 <database name="teste" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8" is-template="false" allow-conns="true">
 	<role name="postgres"/>
@@ -141,7 +141,7 @@ END;
 <table name="caract" layer="0" collapse-mode="2" max-obj-count="14">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="60" y="60"/>
+	<position x="1849" y="742"/>
 	<column name="id" not-null="true" sequence="sgrr.caract_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -194,7 +194,7 @@ END;
 <table name="estado" layer="0" collapse-mode="2" max-obj-count="2">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="340" y="60"/>
+	<position x="672.429" y="1831.14"/>
 	<column name="id" not-null="true" sequence="sgrr.estado_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -224,12 +224,12 @@ END;
 <table name="estradas" layer="0" collapse-mode="2" max-obj-count="7">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="580" y="60"/>
+	<position x="372.714" y="690"/>
 	<column name="id" not-null="true" sequence="sgrr.estradas_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="2" srid="3763"/>
 	</column>
 	<column name="start_m">
 		<type name="double precision" length="0"/>
@@ -251,12 +251,12 @@ END;
 <table name="insert" layer="0" collapse-mode="2" max-obj-count="3">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="840" y="60"/>
+	<position x="576.571" y="2202.57"/>
 	<column name="id" not-null="true">
 		<type name="numeric" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="0" srid="3763"/>
 	</column>
 	<column name="descr">
 		<type name="character varying" length="255"/>
@@ -274,7 +274,7 @@ END;
 <table name="intevencoes" layer="0" collapse-mode="2" max-obj-count="7">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="1100" y="60"/>
+	<position x="376.286" y="1583.71"/>
 	<column name="id" not-null="true" sequence="sgrr.intevencoes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -306,7 +306,7 @@ END;
 <table name="lado" layer="0" collapse-mode="2" max-obj-count="2">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="60" y="440"/>
+	<position x="1388.71" y="1304.57"/>
 	<column name="id" not-null="true" sequence="sgrr.lado_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -326,12 +326,12 @@ END;
 <table name="lrs_line" layer="0" collapse-mode="2" max-obj-count="10">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="300" y="440"/>
+	<position x="959.714" y="1326"/>
 	<column name="id" not-null="true" sequence="sgrr.lrs_line_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="2" srid="3763"/>
 	</column>
 	<column name="start_m">
 		<type name="double precision" length="0"/>
@@ -367,12 +367,12 @@ END;
 <table name="lrs_node" layer="0" collapse-mode="2" max-obj-count="10">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="540" y="440"/>
+	<position x="1780.71" y="1167.57"/>
 	<column name="id" not-null="true" sequence="sgrr.lrs_node_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTIPOINT" variation="2" srid="3763"/>
 	</column>
 	<column name="medicao">
 		<type name="double precision" length="0"/>
@@ -408,12 +408,12 @@ END;
 <table name="patologias" layer="0" collapse-mode="2" max-obj-count="16">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="800" y="440"/>
+	<position x="1422" y="442.143"/>
 	<column name="id" not-null="true" sequence="sgrr.patologias_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="2" srid="3763"/>
 	</column>
 	<column name="nivel">
 		<type name="smallint" length="0"/>
@@ -464,12 +464,12 @@ END;
 <table name="rails" layer="0" collapse-mode="2" max-obj-count="13">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="1100" y="440"/>
+	<position x="388.143" y="1076.57"/>
 	<column name="id" not-null="true" sequence="sgrr.rails_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="2" srid="3763"/>
 	</column>
 	<column name="start_m">
 		<type name="double precision" length="0"/>
@@ -511,7 +511,7 @@ END;
 <table name="tipo_line" layer="0" collapse-mode="2" max-obj-count="2">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="60" y="900"/>
+	<position x="1361.14" y="1928.57"/>
 	<column name="id" not-null="true" sequence="sgrr.tipo_line_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -531,7 +531,7 @@ END;
 <table name="tipo_node" layer="0" collapse-mode="2" max-obj-count="2">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="320" y="900"/>
+	<position x="1584.71" y="985.429"/>
 	<column name="id" not-null="true" sequence="sgrr.tipo_node_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -551,7 +551,7 @@ END;
 <table name="tipo_patologias" layer="0" collapse-mode="2" max-obj-count="3">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="580" y="900"/>
+	<position x="1950.29" y="504"/>
 	<column name="id" not-null="true" sequence="sgrr.tipo_patologias_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -574,7 +574,7 @@ END;
 <table name="tipo_pavimento" layer="0" collapse-mode="2" max-obj-count="3">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="860" y="900"/>
+	<position x="386.857" y="1950"/>
 	<column name="id" not-null="true" sequence="sgrr.tipo_pavimento_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -597,7 +597,7 @@ END;
 <table name="tipo_valeta" layer="0" collapse-mode="2" max-obj-count="2">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="1120" y="900"/>
+	<position x="992.143" y="491.571"/>
 	<column name="id" not-null="true" sequence="sgrr.tipo_valeta_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -617,12 +617,12 @@ END;
 <table name="trocos" layer="0" collapse-mode="2" max-obj-count="8">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="60" y="1080"/>
+	<position x="1712.86" y="1612.86"/>
 	<column name="id" not-null="true" sequence="sgrr.trocos_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="2" srid="3763"/>
 	</column>
 	<column name="irl">
 		<type name="double precision" length="0"/>
@@ -652,12 +652,12 @@ END;
 <table name="valetas" layer="0" collapse-mode="2" max-obj-count="13">
 	<schema name="sgrr"/>
 	<role name="postgres"/>
-	<position x="340" y="1080"/>
+	<position x="880.714" y="838.571"/>
 	<column name="id" not-null="true" sequence="sgrr.valetas_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="geom">
-		<type name="public.geometry" length="0"/>
+		<type name="geometry" length="0" spatial-type="MULTILINESTRING" variation="2" srid="3763"/>
 	</column>
 	<column name="start_m">
 		<type name="double precision" length="0"/>
@@ -845,7 +845,11 @@ END;
 	 custom-color="#cbca34"
 	 src-table="sgrr.caract"
 	 dst-table="sgrr.estradas" reference-fk="estradas_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="149.031" y="5.58955"/>
+	</label>
+</relationship>
 
 <relationship name="rel_intevencoes_trocos" type="relfk" layer="0"
 	 custom-color="#b35b77"
@@ -887,19 +891,31 @@ END;
 	 custom-color="#dc1de6"
 	 src-table="sgrr.lrs_node"
 	 dst-table="sgrr.estradas" reference-fk="estradas_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="126.745" y="25.2299"/>
+	</label>
+</relationship>
 
 <relationship name="rel_lrs_node_lado" type="relfk" layer="0"
 	 custom-color="#a8664c"
 	 src-table="sgrr.lrs_node"
 	 dst-table="sgrr.lado" reference-fk="lado_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="27.3613" y="3.21739"/>
+	</label>
+</relationship>
 
 <relationship name="rel_lrs_node_tipo_node" type="relfk" layer="0"
 	 custom-color="#cf5ca0"
 	 src-table="sgrr.lrs_node"
 	 dst-table="sgrr.tipo_node" reference-fk="tipo_node_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="39.3179" y="-33.2863"/>
+	</label>
+</relationship>
 
 <relationship name="rel_patologias_estradas" type="relfk" layer="0"
 	 custom-color="#481cfa"
@@ -911,7 +927,11 @@ END;
 	 custom-color="#d8c3e4"
 	 src-table="sgrr.patologias"
 	 dst-table="sgrr.tipo_patologias" reference-fk="tipo_patologias_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="28.4373" y="22.3832"/>
+	</label>
+</relationship>
 
 <relationship name="rel_rails_estado" type="relfk" layer="0"
 	 custom-color="#cfdd29"
@@ -929,13 +949,21 @@ END;
 	 custom-color="#a06009"
 	 src-table="sgrr.rails"
 	 dst-table="sgrr.lado" reference-fk="lado_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-173.149" y="78.6403"/>
+	</label>
+</relationship>
 
 <relationship name="rel_trocos_estradas" type="relfk" layer="0"
 	 custom-color="#4e28df"
 	 src-table="sgrr.trocos"
 	 dst-table="sgrr.estradas" reference-fk="estradas_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="104.026" y="6.3313"/>
+	</label>
+</relationship>
 
 <relationship name="rel_trocos_tipo_pavimento" type="relfk" layer="0"
 	 custom-color="#daed47"
@@ -965,6 +993,10 @@ END;
 	 custom-color="#ac3a1c"
 	 src-table="sgrr.valetas"
 	 dst-table="sgrr.tipo_valeta" reference-fk="tipo_valeta_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="34.8347" y="44.5487"/>
+	</label>
+</relationship>
 
 </dbmodel>
