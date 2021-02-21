@@ -7,6 +7,7 @@ SGRR - Sistema de Gestão de Rede Rodoviária *(é óbvio que o nome pode mudar)
 * A ideia é a aplicação de um [Linear Reference System (LRS)](https://en.wikipedia.org/wiki/Linear_referencing) na BD para uso em **n** tipo de *software*, SIG ou não
 * inclui um dump com informação exemplificativa, para testes (informação não sensível e desatualizada)
 * adicionado um diagrama da BD em formato pgmodeler
+* adicionado [schemaspy para "navegar" pela BD](https://georede5.github.io/db_models/sgrr/schemaspy) - útil para quem não tem o pgmodeler
  
 <img src="./db_diagram.png" width="900"> ![](./example_anim.gif)
 
