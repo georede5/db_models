@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="sgrr" schema="sgrr" type="PostgreSQL - 13.1">
+   <sequences>
+      <sequence increment="1" name="caract_id_seq" startValue="1"/>
+      <sequence increment="1" name="estado_id_seq" startValue="1"/>
+      <sequence increment="1" name="estradas_id_seq" startValue="1"/>
+      <sequence increment="1" name="intevencoes_id_seq" startValue="1"/>
+      <sequence increment="1" name="lado_id_seq" startValue="1"/>
+      <sequence increment="1" name="lrs_line_id_seq" startValue="1"/>
+      <sequence increment="1" name="lrs_node_id_seq" startValue="1"/>
+      <sequence increment="1" name="patologias_id_seq" startValue="1"/>
+      <sequence increment="1" name="rails_id_seq" startValue="1"/>
+      <sequence increment="1" name="tipo_line_id_seq" startValue="1"/>
+      <sequence increment="1" name="tipo_node_id_seq" startValue="1"/>
+      <sequence increment="1" name="tipo_patologias_id_seq" startValue="1"/>
+      <sequence increment="1" name="tipo_pavimento_id_seq" startValue="1"/>
+      <sequence increment="1" name="tipo_valeta_id_seq" startValue="1"/>
+      <sequence increment="1" name="trocos_id_seq" startValue="1"/>
+      <sequence increment="1" name="valetas_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="caract" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.caract_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="designacao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="extensao" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="largura_m" nullable="true" remarks="" size="2" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="t_horizontal" nullable="true" remarks="" size="12" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="t_vertical" nullable="true" remarks="" size="12" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="sinal_vert" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="sinal_horiz" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="berma_larg" nullable="true" remarks="" size="2" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="ilumi_nos" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="id_estradas" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="rv_caract_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="caract_uq" unique="true">
+            <column ascending="true" name="id_estradas"/>
+         </index>
+      </table>
+      <table name="estado" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.estado_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_estado" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_line"/>
+            <child column="id_estado" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_node"/>
+            <child column="id_estado" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="rails"/>
+            <child column="id_estado" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="valetas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="estado_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="estradas" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.estradas_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="caract"/>
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_line"/>
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_node"/>
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="patologias"/>
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="rails"/>
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="trocos"/>
+            <child column="id_estradas" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="valetas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="start_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="end_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="ref" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="insert" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descr" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="insert_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="intevencoes" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.intevencoes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="data_inter" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="desc_inter" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="valor" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="id_trocos" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="trocos_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="trocos"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="intervencoes_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="lado" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.lado_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_lado" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_line"/>
+            <child column="id_lado" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_node"/>
+            <child column="id_lado" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="rails"/>
+            <child column="id_lado" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="valetas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="lado_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="lrs_line" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.lrs_line_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="start_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="end_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="id_estradas" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="id_tipo_line" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="tipo_line_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="tipo_line"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="id_estado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="id_lado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lado"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="lcadastro_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="lrs_node" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.lrs_node_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="medicao" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="dimensoes" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="id_estradas" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="id_tipo_node" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="tipo_node_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="tipo_node"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="id_estado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="id_lado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lado"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="opontos" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="patologias" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.patologias_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nivel" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="start_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="end_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="area_afectada" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="largura" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="profundidade" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="data_reparacao" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="data_levantamento" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="largura_real" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="id_estradas" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="id_tipo_patologias" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="tipo_patologias_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="tipo_patologias"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <primaryKey column="id_estradas" sequenceNumberInPK="2"/>
+         <primaryKey column="id_tipo_patologias" sequenceNumberInPK="3"/>
+         <index name="reparacoes_pk" unique="true">
+            <column ascending="true" name="id"/>
+            <column ascending="true" name="id_estradas"/>
+            <column ascending="true" name="id_tipo_patologias"/>
+         </index>
+      </table>
+      <table name="rails" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.rails_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="start_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="end_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="refletor" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="pmoto" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="cauda" nullable="true" remarks="" size="24" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="id_estradas" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="id_estado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="id_lado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lado"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="lcadastro_1" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="tipo_line" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.tipo_line_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_tipo_line" foreignKey="tipo_line_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_line"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="lcadastro_pk_1" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="tipo_node" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.tipo_node_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_tipo_node" foreignKey="tipo_node_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lrs_node"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="tpcadastro_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="tipo_patologias" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.tipo_patologias_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_tipo_patologias" foreignKey="tipo_patologias_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="patologias"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="16" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod" nullable="true" remarks="" size="4" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="tpatologias_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="tipo_pavimento" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.tipo_pavimento_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_tipo_pavimento" foreignKey="tipo_pavimento_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="trocos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="tpavimento_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="tipo_valeta" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.tipo_valeta_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_tipo_valeta" foreignKey="tipo_valeta_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="valetas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descricao" nullable="true" remarks="" size="24" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="tvaleta_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="trocos" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.trocos_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="id_trocos" foreignKey="trocos_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="intevencoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="irl" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="start_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="end_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="id_estradas" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="id_tipo_pavimento" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="tipo_pavimento_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="tipo_pavimento"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="trocos_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="valetas" numRows="0" remarks="" schema="sgrr" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sgrr.valetas_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="start_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="end_m" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="dimensoes" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="drenos" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="obs" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="id_estradas" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estradas_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estradas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="id_tipo_valeta" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="tipo_valeta_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="tipo_valeta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="id_estado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="estado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="estado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="id_lado" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="lado_fk" implied="false" onDeleteCascade="false" schema="sgrr" table="lado"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="obras_artes" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+   </tables>
+</database>

@@ -1,0 +1,17 @@
+insert
+valetas
+lrs_node
+lrs_line
+rails
+patologias
+intevencoes
+caract
+trocos
+tipo_valeta
+tipo_pavimento
+tipo_patologias
+tipo_node
+tipo_line
+lado
+estado
+estradas

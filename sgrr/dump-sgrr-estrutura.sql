@@ -7,6 +7,10 @@
 SET check_function_bodies = false;
 -- ddl-end --
 
+CREATE EXTENSION postgis;
+-- ddl-end --
+COMMENT ON EXTENSION postgis IS E'PostGIS geometry, geography, and raster spatial types and functions';
+-- ddl-end --
 
 -- Database creation must be done outside a multicommand file.
 -- These commands were put in this file only as a convenience.
@@ -29,11 +33,6 @@ CREATE SCHEMA sgrr;
 -- ddl-end --
 
 SET search_path TO pg_catalog,public,sgrr;
--- ddl-end --
-
-CREATE EXTENSION postgis;
--- ddl-end --
-COMMENT ON EXTENSION postgis IS E'PostGIS geometry, geography, and raster spatial types and functions';
 -- ddl-end --
 
 -- object: sgrr.calcula_area_afectada | type: FUNCTION --
