@@ -4,5 +4,5 @@ Conforme referenciado o [GeoRede5](https://github.com/georede5) é um projecto d
 
 ## Diagramas
 
- * [SAA](/saa) - Sistema de Abastecimento de Água
- * [SGRR](/sgrr) - Sistema de Gestão de Rede Rodoviária (baseado neste [trabalho](http://osgeopt.pt/sasig2015/files/15_Pedro_Sim%C3%B5es_Hugo_Santos_SASIG2015.pdf) e [apresentação](http://osgeopt.pt/sasig2015/files/keynotes/hugo/sgrr.html#/step-7))
+ * [SAA](/db_models/saa) - Sistema de Abastecimento de Água
+ * [SGRR](/db_models/sgrr) - Sistema de Gestão de Rede Rodoviária (baseado neste [trabalho](http://osgeopt.pt/sasig2015/files/15_Pedro_Sim%C3%B5es_Hugo_Santos_SASIG2015.pdf) e [apresentação](http://osgeopt.pt/sasig2015/files/keynotes/hugo/sgrr.html#/step-7))
